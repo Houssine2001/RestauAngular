@@ -1,0 +1,27 @@
+<p>menu-details works!</p>
+
+<div *ngIf="menu">
+  <h2>{{ menu.title }}</h2>
+  <img [src]="menu.image" alt="{{ menu.title }}" class="img-fluid">
+  <h3>{{ menu.description }}</h3>
+ 
+
+  <div *ngIf="menu.mark != 0">
+    <label>MARK: </label>{{ menu.mark }}
+  </div>
+  <div *ngIf="menu.mark == 0">
+    <label>« Aucune note n’est attribuée à ce menu »</label>
+  </div>
+
+
+<input type="number" [(ngModel)]="nemark" name="mark" min="1" max="5" #menue="ngModel"> 
+<div *ngIf="menue.invalid && (menue.dirty || menue.touched)" class="alert alert-danger">
+  <div *ngIf="menue.errors!['min']">
+    mark must be at least 1.
+  </div>
+  <div *ngIf="menue.errors!['max']">
+    mark must be at most 5.
+  </div>
+  
+</div>
+<button class="btn btn-warning" (click)="updateMenu(menu)">Noter</button>

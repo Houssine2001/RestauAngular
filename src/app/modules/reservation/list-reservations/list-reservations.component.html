@@ -1,0 +1,10 @@
+<div *ngFor="let menu of Listemenu">
+    <h3>{{ menu.title }}</h3>
+    <p>{{ menu.description }}</p>
+    <p>Reservations:</p>
+    <ul>
+      <li *ngFor="let reservation of menu.reservations">
+        {{ reservation }}
+      </li>
+    </ul>
+  </div>
